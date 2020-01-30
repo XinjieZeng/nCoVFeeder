@@ -5,8 +5,6 @@ public class Newslist {
 
     private String curedCount;
 
-    private City[] cities;
-
     private String provinceShortName;
 
     private String comment;
@@ -16,6 +14,8 @@ public class Newslist {
     private String deadCount;
 
     private String suspectedCount;
+    private City[] cities;
+
 
     public String getConfirmedCount ()
     {

@@ -2,15 +2,14 @@ package com.example.nCoVFeeder.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class CoronavirusProgress {
-
+public class Rumor {
     @JsonIgnore
     private String msg;
 
     @JsonIgnore
     private String code;
 
-    private Newslist[] newslist;
+    private RumorList[] newslist;
 
     public String getMsg ()
     {
@@ -32,12 +31,12 @@ public class CoronavirusProgress {
         this.code = code;
     }
 
-    public Newslist[] getNewslist ()
+    public RumorList[] getNewslist ()
     {
         return newslist;
     }
 
-    public void setNewslist (Newslist[] newslist)
+    public void setNewslist (RumorList[] newslist)
     {
         this.newslist = newslist;
     }
