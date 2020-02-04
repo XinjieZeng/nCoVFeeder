@@ -1,5 +1,7 @@
 package com.example.nCoVFeeder.model;
 
+import java.util.List;
+
 public class Newslist {
     private String confirmedCount;
 
@@ -14,7 +16,7 @@ public class Newslist {
     private String deadCount;
 
     private String suspectedCount;
-    private City[] cities;
+    private List<City> cities;
 
 
     public String getConfirmedCount ()
@@ -37,12 +39,12 @@ public class Newslist {
         this.curedCount = curedCount;
     }
 
-    public City[] getCities ()
+    public List<City> getCities ()
     {
         return cities;
     }
 
-    public void setCities (City[] cities)
+    public void setCities (List<City> cities)
     {
         this.cities = cities;
     }

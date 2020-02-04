@@ -2,6 +2,8 @@ package com.example.nCoVFeeder.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.List;
+
 public class Rumor {
     @JsonIgnore
     private String msg;
@@ -9,7 +11,7 @@ public class Rumor {
     @JsonIgnore
     private String code;
 
-    private RumorList[] newslist;
+    private List<RumorList> newslist;
 
     public String getMsg ()
     {
@@ -31,12 +33,12 @@ public class Rumor {
         this.code = code;
     }
 
-    public RumorList[] getNewslist ()
+    public List<RumorList> getNewslist ()
     {
         return newslist;
     }
 
-    public void setNewslist (RumorList[] newslist)
+    public void setNewslist (List<RumorList> newslist)
     {
         this.newslist = newslist;
     }

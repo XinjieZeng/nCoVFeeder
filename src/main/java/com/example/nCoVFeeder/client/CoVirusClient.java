@@ -1,45 +1,33 @@
 package com.example.nCoVFeeder.client;
-
 import com.example.nCoVFeeder.model.CoronavirusProgress;
 import com.example.nCoVFeeder.model.Rumor;
 import com.example.nCoVFeeder.model.api;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
 
-import java.net.URL;
 
+@Component
 public class CoVirusClient {
-
-    private final String CONOVIRUS_PROGRESS = api.CORONOVIRUS_PROGRESS.url();
-    private final String CONOVIRUS_RUMOR = api.CORONOVIRUSRUMOR.url();
+    private RestTemplate restTemplate = new RestTemplate();
+    private final String CONOVIRUS_PROGRESS_URI = api.CORONOVIRUS_PROGRESS.url();
+    private final String CONOVIRUS_RUMOR_URI = api.CORONOVIRUSRUMOR.url();
 
     public CoronavirusProgress requestProgress(){
-        ObjectMapper mapper  = new ObjectMapper();
-        CoronavirusProgress coronavirusProgress = new CoronavirusProgress();
-
-        try{
-            URL url = new URL(CONOVIRUS_PROGRESS);
-            coronavirusProgress = mapper.readValue(url, CoronavirusProgress.class);
-
-        }catch (Exception e){
-            e.printStackTrace();
+        try {
+            return restTemplate.getForObject(CONOVIRUS_PROGRESS_URI, CoronavirusProgress.class);
+        } catch (RestClientException e) {
+            throw new RuntimeException();
         }
-
-        return coronavirusProgress;
     }
 
     public Rumor requestRumor(){
-        ObjectMapper mapper  = new ObjectMapper();
-        Rumor rumor = new Rumor();
-
         try{
-            URL url = new URL(CONOVIRUS_RUMOR);
-            rumor = mapper.readValue(url, Rumor.class);
-
-        }catch (Exception e){
-            e.printStackTrace();
+            return restTemplate.getForObject(CONOVIRUS_RUMOR_URI,Rumor.class);
         }
-
-        return rumor;
+        catch (RestClientException e){
+            throw new RuntimeException();
+        }
     }
 
 }
