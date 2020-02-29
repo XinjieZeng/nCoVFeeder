@@ -1,10 +1,15 @@
 package com.example.nCoVFeeder.model;
 
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
+import java.util.Locale;
+
 public class CoronavirusResultWrapper {
 
     private CoronavirusProgress coronavirusProgress;
     private City city;
     private Rumor rumor;
+    private Locale locale;
 
     public CoronavirusProgress getCoronavirusProgress() {
         return coronavirusProgress;
