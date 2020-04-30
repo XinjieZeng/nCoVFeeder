@@ -23,6 +23,7 @@ public class CoVirusProgressController {
     private CoVirusProgressBroker broker;
     @Operation(summary = "Get the current situation of New Cornovirus in China",
                 description = "## This endpoint use open api doc ")
+
     @GetMapping(value = "/progress", produces = MediaType.APPLICATION_JSON_VALUE)
     public CoronavirusResultWrapper getCoVirusProgress(@RequestHeader(value = "Accept-Language", required = false, defaultValue = "zh-CN") String rawLocale,
                                                            @RequestParam(value="city", defaultValue="") String city,

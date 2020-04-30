@@ -17,8 +17,8 @@ public class CoVirusClient {
     private String subspcriptionKey;
 
     private RestTemplate restTemplate = new RestTemplate();
-    private String conovirusProgressUrl = api.CORONOVIRUS_PROGRESS.url() + "?key=" + "54a8d925c25e919a7a7837128651971a";
-    private String rumorUrl = api.CORONOVIRUSRUMOR.url() + "?key=" + "54a8d925c25e919a7a7837128651971a";
+    private String conovirusProgressUrl = api.CORONOVIRUS_PROGRESS.url() + "?key=" + subspcriptionKey;
+    private String rumorUrl = api.CORONOVIRUSRUMOR.url() + "?key=" + subspcriptionKey;
 
     public CoronavirusProgress requestProgress(){
         try {
